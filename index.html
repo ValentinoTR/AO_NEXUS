@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AO NEXUS - Hardware Gaming & Creación</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -92,11 +93,168 @@
             font-size: 14px;
         }
 
+        .menu-toggle {
+            display: none;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* SIDEBAR STYLES */
+        .main-wrapper {
+            display: flex;
+            min-height: calc(100vh - 200px);
+            gap: 0;
+        }
+
+        .sidebar {
+            width: 280px;
+            background: #1e293b;
+            border-right: 2px solid #334155;
+            padding: 20px 0;
+            overflow-y: auto;
+            flex-shrink: 0;
+            max-height: calc(100vh - 200px);
+        }
+
+        .sidebar-title {
+            padding: 15px 20px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #8b5cf6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 10px;
+        }
+
+        /* Categoría Principal */
+        .category-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #cbd5e1;
+            border-left: 4px solid transparent;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .category-main:hover {
+            background: rgba(139, 92, 246, 0.15);
+            border-left-color: #8b5cf6;
+            color: #06b6d4;
+            transform: translateX(5px);
+        }
+
+        .category-main.expanded {
+            background: rgba(139, 92, 246, 0.2);
+            border-left-color: #8b5cf6;
+            color: #06b6d4;
+            font-weight: bold;
+        }
+
+        .category-icon {
+            font-size: 18px;
+            width: 28px;
+            text-align: center;
+            color: #8b5cf6;
+        }
+
+        .category-main.expanded .category-icon {
+            color: #06b6d4;
+        }
+
+        .category-content {
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .toggle-icon {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+            color: #8b5cf6;
+            width: 16px;
+            text-align: center;
+        }
+
+        .category-main.expanded .toggle-icon {
+            transform: rotate(90deg);
+            color: #06b6d4;
+        }
+
+        /* Subcategoría */
+        .subcategory-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .subcategory-container.open {
+            max-height: 1000px;
+        }
+
+        .subcategory-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px 10px 48px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #cbd5e1;
+            border-left: 4px solid transparent;
+            font-size: 13px;
+        }
+
+        .subcategory-item:hover {
+            background: rgba(139, 92, 246, 0.1);
+            border-left-color: #8b5cf6;
+            color: #06b6d4;
+            transform: translateX(3px);
+        }
+
+        .subcategory-item.active {
+            background: rgba(139, 92, 246, 0.25);
+            border-left-color: #06b6d4;
+            color: #06b6d4;
+            font-weight: bold;
+        }
+
+        .subcategory-icon {
+            font-size: 14px;
+            width: 20px;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .subcategory-item:hover .subcategory-icon,
+        .subcategory-item.active .subcategory-icon {
+            color: #06b6d4;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .hero {
-            padding: 50px 20px;
+            padding: 40px 20px;
             background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
             border-bottom: 2px solid #8b5cf6;
             text-align: center;
+            display: none;
+        }
+
+        .hero.show {
+            display: block;
         }
 
         .hero h2 {
@@ -105,7 +263,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
         }
 
         .hero p {
@@ -113,36 +270,35 @@
             color: #cbd5e1;
         }
 
-        .category-filter {
-            padding: 20px;
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            justify-content: center;
-            flex-wrap: wrap;
-            background: rgba(139, 92, 246, 0.05);
-        }
-
-        .filter-btn {
-            padding: 8px 16px;
-            background: #1e293b;
-            color: #cbd5e1;
-            border: 1px solid #334155;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: linear-gradient(135deg, #8b5cf6, #6366f1);
-            border-color: #8b5cf6;
-            color: white;
-        }
-
         .products-section {
             padding: 40px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #64748b;
+            padding: 60px 20px;
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state-sub {
+            font-size: 14px;
+            color: #475569;
         }
 
         .category-title {
@@ -473,14 +629,45 @@
             color: #cbd5e1;
         }
 
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 220px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            .menu-toggle {
+                display: block;
             }
 
             .header-content {
                 flex-direction: column;
                 gap: 15px;
+            }
+
+            .header-contact {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .main-wrapper {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid #334155;
+                display: none;
+            }
+
+            .sidebar.active {
+                display: block;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             }
 
             .hero h2 {
@@ -490,15 +677,6 @@
             .modal-content {
                 width: 95%;
                 margin: 20% auto;
-            }
-
-            .header-contact {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .product-image-container {
-                height: 160px;
             }
         }
     </style>
@@ -515,6 +693,7 @@
                         <p>Hardware Gaming & Creación</p>
                     </div>
                 </div>
+                <button class="menu-toggle" onclick="toggleSidebar()">☰ MENÚ</button>
                 <div class="header-contact">
                     📱 +51 942 956 898
                 </div>
@@ -522,30 +701,144 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>⚡ POTENCIA REAL. PRECIOS COMPETITIVOS. ⚡</h2>
-            <p>AO NEXUS es una tienda especializada en hardware y tecnología de alto rendimiento. Ofrecemos productos nuevos y sellados a precios altamente competitivos, siempre buscando las mejores opciones para ti.</p>
+    <!-- Main Wrapper with Sidebar -->
+    <div class="main-wrapper">
+        <!-- SIDEBAR -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-title">CATEGORÍAS</div>
+            
+            <!-- PROCESADOR -->
+            <div class="category-main" onclick="toggleCategory(event, 'procesador')">
+                <i class="fas fa-microchip category-icon"></i>
+                <span class="category-content">Procesador</span>
+                <i class="fas fa-chevron-right toggle-icon"></i>
+            </div>
+            <div class="subcategory-container" id="procesador-subcats">
+                <div class="subcategory-item" onclick="filterProducts('amd')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>AMD</span>
+                </div>
+                <div class="subcategory-item" onclick="filterProducts('intel')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>Intel</span>
+                </div>
+            </div>
+
+            <!-- PLACAS -->
+            <div class="category-main" onclick="toggleCategory(event, 'placas')">
+                <i class="fas fa-square category-icon"></i>
+                <span class="category-content">Placas</span>
+                <i class="fas fa-chevron-right toggle-icon"></i>
+            </div>
+            <div class="subcategory-container" id="placas-subcats">
+                <div class="subcategory-item" onclick="togglePlacaSub(event)">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>AMD →</span>
+                </div>
+                <div style="padding-left: 68px; display:none;" class="placa-amd-sockets">
+                    <div class="subcategory-item" onclick="filterProducts('placa-am4')">
+                        <i class="fas fa-dot-circle subcategory-icon"></i>
+                        <span>AM4</span>
+                    </div>
+                    <div class="subcategory-item" onclick="filterProducts('placa-am5')">
+                        <i class="fas fa-dot-circle subcategory-icon"></i>
+                        <span>AM5</span>
+                    </div>
+                </div>
+                <div class="subcategory-item" onclick="togglePlacaSub(event)">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>Intel →</span>
+                </div>
+                <div style="padding-left: 68px; display:none;" class="placa-intel-sockets">
+                    <div class="subcategory-item" onclick="filterProducts('placa-lga1851')">
+                        <i class="fas fa-dot-circle subcategory-icon"></i>
+                        <span>LGA1851</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RAM -->
+            <div class="category-main" onclick="toggleCategory(event, 'ram')">
+                <i class="fas fa-bars category-icon"></i>
+                <span class="category-content">RAM</span>
+                <i class="fas fa-chevron-right toggle-icon"></i>
+            </div>
+            <div class="subcategory-container" id="ram-subcats">
+                <div class="subcategory-item" onclick="filterProducts('ddr4')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>DDR4</span>
+                </div>
+                <div class="subcategory-item" onclick="filterProducts('ddr5')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>DDR5</span>
+                </div>
+            </div>
+
+            <!-- ALMACENAMIENTO -->
+            <div class="subcategory-item" onclick="filterProducts('almacenamiento')" style="padding-left: 20px;">
+                <i class="fas fa-database category-icon"></i>
+                <span>Almacenamiento</span>
+            </div>
+
+            <!-- FUENTE DE PODER -->
+            <div class="category-main" onclick="toggleCategory(event, 'fuente')">
+                <i class="fas fa-plug category-icon"></i>
+                <span class="category-content">Fuente de Poder</span>
+                <i class="fas fa-chevron-right toggle-icon"></i>
+            </div>
+            <div class="subcategory-container" id="fuente-subcats">
+                <div class="subcategory-item" onclick="filterProducts('fuente-bronze')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>Bronze</span>
+                </div>
+                <div class="subcategory-item" onclick="filterProducts('fuente-silver')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>Silver</span>
+                </div>
+                <div class="subcategory-item" onclick="filterProducts('fuente-gold')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>Gold</span>
+                </div>
+                <div class="subcategory-item" onclick="filterProducts('fuente-platinum')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>Platinum</span>
+                </div>
+            </div>
+
+            <!-- REFRIGERACIÓN -->
+            <div class="category-main" onclick="toggleCategory(event, 'refrigeracion')">
+                <i class="fas fa-fan category-icon"></i>
+                <span class="category-content">Refrigeración</span>
+                <i class="fas fa-chevron-right toggle-icon"></i>
+            </div>
+            <div class="subcategory-container" id="refrigeracion-subcats">
+                <div class="subcategory-item" onclick="filterProducts('refrigeracion-liquida')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>Refrigeración Líquida</span>
+                </div>
+                <div class="subcategory-item" onclick="filterProducts('refrigeracion-aire')">
+                    <i class="fas fa-cube subcategory-icon"></i>
+                    <span>Refrigeración de Aire</span>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <!-- Filtro de categorías -->
-    <div class="category-filter">
-        <button class="filter-btn active" onclick="filterCategory('all')">📦 Todos</button>
-        <button class="filter-btn" onclick="filterCategory('amd')">🔴 AMD</button>
-        <button class="filter-btn" onclick="filterCategory('intel')">🔵 Intel</button>
-        <button class="filter-btn" onclick="filterCategory('placas')">🖲️ Placas Madre</button>
-        <button class="filter-btn" onclick="filterCategory('ram')">📊 RAM</button>
-        <button class="filter-btn" onclick="filterCategory('almacenamiento')">💾 Almacenamiento</button>
-        <button class="filter-btn" onclick="filterCategory('fuente')">⚡ Fuentes</button>
-        <button class="filter-btn" onclick="filterCategory('cooler')">❄️ Coolers</button>
+        <!-- Content Area -->
+        <div class="content">
+            <!-- Products Section -->
+            <section class="products-section">
+                <div class="container" id="productsContainer">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <p>Selecciona una categoría</p>
+                        <p class="empty-state-sub">Expande una categoría y elige una opción del menú lateral</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-
-    <!-- Products Section -->
-    <section class="products-section">
-        <div class="container" id="productsContainer"></div>
-    </section>
 
     <!-- Modal -->
     <div id="productModal" class="modal">
@@ -558,7 +851,7 @@
             <div class="modal-price" id="modalPrice"></div>
             <div class="modal-buttons">
                 <button class="btn-whatsapp" onclick="contactWhatsApp()">
-                    📱 Consultar Stock por WhatsApp
+                    <i class="fab fa-whatsapp"></i> Consultar Stock
                 </button>
                 <button class="btn-close-modal" onclick="closeModal()">Cerrar</button>
             </div>
@@ -566,341 +859,252 @@
     </div>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/51942956898?text=Hola%20AO%20NEXUS%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20productos" target="_blank" class="whatsapp-button" title="Contactar por WhatsApp">💬</a>
+    <a href="https://wa.me/51942956898?text=Hola%20AO%20NEXUS%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20productos" target="_blank" class="whatsapp-button" title="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Footer -->
     <footer>
         <div class="footer-info">
-            <div class="footer-item">📱 +51 942 956 898</div>
-            <div class="footer-item">📍 Perú - Lima</div>
-            <div class="footer-item">🚚 Envíos Rápidos</div>
+            <div class="footer-item"><i class="fas fa-phone"></i> +51 942 956 898</div>
+            <div class="footer-item"><i class="fas fa-map-marker-alt"></i> Perú - Lima</div>
+            <div class="footer-item"><i class="fas fa-truck"></i> Envíos Rápidos</div>
         </div>
         <p>© 2026 AO NEXUS - Hardware Gaming  - Todos los derechos reservados</p>
     </footer>
 
     <script>
-        // Base de datos de productos con imágenes
+        // Base de datos de productos actualizada con tags de categoría
         const products = [
             // AMD
             {
                 id: 1,
                 name: "RYZEN 5 9600X",
                 category: "amd",
-                brand: "AMD Ryzen",
                 price: 700,
                 stock: 5,
                 image: "img/RYZEN_5_9600X.jpg",
-                specs: {
-                    "Familia": "Ryzen 5 9600X",
-                    "Cores/Threads": "6C/12T",
-                    "Frecuencia Base": "4.4 GHz",
-                    "Socket": "AM5",
-                    "TDP": "65W"
-                }
+                specs: { "Familia": "Ryzen 5 9600X", "Cores/Threads": "6C/12T", "Frecuencia Base": "4.4 GHz", "Socket": "AM5", "TDP": "65W" }
             },
             {
                 id: 2,
                 name: "RYZEN 7 7800X3D",
                 category: "amd",
-                brand: "AMD Ryzen",
                 price: 1450,
                 stock: 1,
                 image: "img/RYZEN_7_7800X3D.jpg",
-                specs: {
-                    "Familia": "Ryzen 7 7800X3D",
-                    "Cores/Threads": "8C/16T",
-                    "Frecuencia Base": "4.2 GHz",
-                    "Socket": "AM5",
-                    "TDP": "120W",
-                    "3D V-Cache": "Sí"
-                }
+                specs: { "Familia": "Ryzen 7 7800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.2 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
             },
             {
                 id: 3,
                 name: "RYZEN 7 9800X3D",
                 category: "amd",
-                brand: "AMD Ryzen",
                 price: 1650,
                 stock: 1,
                 image: "img/RYZEN_7_9800X3D.jpg",
-                specs: {
-                    "Familia": "Ryzen 7 9800X3D",
-                    "Cores/Threads": "8C/16T",
-                    "Frecuencia Base": "4.7 GHz",
-                    "Socket": "AM5",
-                    "TDP": "120W",
-                    "3D V-Cache": "Sí"
-                }
+                specs: { "Familia": "Ryzen 7 9800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.7 GHz", "Socket": "AM5", "TDP": "120W" }
             },
             {
                 id: 4,
                 name: "RYZEN 9 9950X3D",
                 category: "amd",
-                brand: "AMD Ryzen",
                 price: 2700,
                 stock: 1,
                 image: "img/RYZEN_9_9500X3D.jpg",
-                specs: {
-                    "Familia": "Ryzen 9 9950X3D",
-                    "Cores/Threads": "16C/32T",
-                    "Frecuencia Base": "4.3 GHz",
-                    "Socket": "AM5",
-                    "TDP": "120W"
-                }
+                specs: { "Familia": "Ryzen 9 9950X3D", "Cores/Threads": "16C/32T", "Frecuencia Base": "4.3 GHz", "Socket": "AM5", "TDP": "120W" }
             },
             // INTEL
             {
                 id: 5,
                 name: "INTEL CORE ULTRA 5 225F",
                 category: "intel",
-                brand: "Intel Core Ultra",
                 price: 550,
                 stock: 2,
                 image: "img/ULTRA_5_225F.jpg",
-                specs: {
-                    "Familia": "Core Ultra 5 225F",
-                    "Cores/Threads": "6C/8T",
-                    "Frecuencia Base": "3.7 GHz",
-                    "Socket": "LGA1851",
-                    "TDP": "58W"
-                }
+                specs: { "Familia": "Core Ultra 5 225F", "Cores/Threads": "6C/8T", "Frecuencia Base": "3.7 GHz", "Socket": "LGA1851", "TDP": "58W" }
             },
             {
                 id: 6,
                 name: "INTEL CORE ULTRA 7 270K PLUS",
                 category: "intel",
-                brand: "Intel Core Ultra",
                 price: 1150,
                 stock: 1,
                 image: "img/ULTRA_7_270K_PLUS.jpg",
-                specs: {
-                    "Familia": "Core Ultra 7 270K PLUS",
-                    "Cores/Threads": "8C/12T",
-                    "Frecuencia Base": "3.6 GHz",
-                    "Socket": "LGA1851",
-                    "TDP": "125W"
-                }
+                specs: { "Familia": "Core Ultra 7 270K PLUS", "Cores/Threads": "8C/12T", "Frecuencia Base": "3.6 GHz", "Socket": "LGA1851", "TDP": "125W" }
             },
             {
                 id: 7,
                 name: "INTEL CORE ULTRA 9 285K",
                 category: "intel",
-                brand: "Intel Core Ultra",
                 price: 2000,
                 stock: 1,
                 image: "img/ULTRA_9_285K.jpg",
-                specs: {
-                    "Familia": "Core Ultra 9 285K",
-                    "Cores/Threads": "24C/24T",
-                    "Frecuencia Base": "3.7 GHz",
-                    "Socket": "LGA1851",
-                    "TDP": "125W"
-                }
+                specs: { "Familia": "Core Ultra 9 285K", "Cores/Threads": "24C/24T", "Frecuencia Base": "3.7 GHz", "Socket": "LGA1851", "TDP": "125W" }
             },
             // PLACAS MADRE
             {
                 id: 8,
                 name: "B850M-E ASUS TUF WIFI",
-                category: "placas",
-                brand: "ASUS",
+                category: "placa-am5",
                 price: 650,
                 stock: 1,
                 image: "img/B850M-E_ASUS_TUF_WIFI.jpg",
-                specs: {
-                    "Modelo": "B850M-E ASUS TUF WIFI",
-                    "Socket": "AM5",
-                    "Chipset": "B850M",
-                    "Factor Forma": "Micro-ATX",
-                    "WiFi": "WiFi 7",
-                    "Conectividad": "2.5G Ethernet"
-                }
+                specs: { "Modelo": "B850M-E ASUS TUF WIFI", "Socket": "AM5", "Chipset": "B850M", "Factor Forma": "Micro-ATX", "WiFi": "WiFi 7" }
             },
             {
                 id: 9,
                 name: "B850 MAX GAMING WIFI W",
-                category: "placas",
-                brand: "ASUS",
+                category: "placa-am5",
                 price: 670,
                 stock: 1,
                 image: "img/B850_MAX_GAMING_WIFI_W.jpg",
-                specs: {
-                    "Modelo": "B850 MAX GAMING WIFI W",
-                    "Socket": "AM5",
-                    "Chipset": "B850",
-                    "Factor Forma": "ATX",
-                    "WiFi": "WiFi 6E",
-                    "Conectividad": "2.5G Ethernet"
-                }
+                specs: { "Modelo": "B850 MAX GAMING WIFI W", "Socket": "AM5", "Chipset": "B850", "Factor Forma": "ATX", "WiFi": "WiFi 6E" }
             },
             // RAM
             {
                 id: 10,
                 name: "NETAC 2X16GB 3200MHZ DDR4",
-                category: "ram",
-                brand: "Netac",
+                category: "ddr4",
                 price: 700,
                 stock: 1,
                 image: "img/NETAC_2X16GB_3200MHZ.jpg",
-                specs: {
-                    "Capacidad": "2x16GB (32GB Total)",
-                    "Tipo": "DDR4",
-                    "Velocidad": "3200 MHz",
-                    "CAS Latency": "CAS 16",
-                    "Voltaje": "1.35V"
-                }
+                specs: { "Capacidad": "2x16GB (32GB Total)", "Tipo": "DDR4", "Velocidad": "3200 MHz", "CAS Latency": "CAS 16", "Voltaje": "1.35V" }
             },
             {
                 id: 11,
                 name: "TEAMGROUP 2x8GB TFORCE VULCAN 5200MHZ DDR5",
-                category: "ram",
-                brand: "TeamGroup",
+                category: "ddr5",
                 price: 720,
                 stock: 1,
                 image: "img/TEAMGROUP_TFORCE_VULCAN_DDR5.jpg",
-                specs: {
-                    "Capacidad": "2x8GB (16GB Total)",
-                    "Tipo": "DDR5",
-                    "Velocidad": "5200 MHz",
-                    "CAS Latency": "CAS 24",
-                    "Voltaje": "1.25V"
-                }
+                specs: { "Capacidad": "2x8GB (16GB Total)", "Tipo": "DDR5", "Velocidad": "5200 MHz", "CAS Latency": "CAS 24", "Voltaje": "1.25V" }
             },
             // ALMACENAMIENTO
             {
                 id: 12,
                 name: "SSD SAMSUNG 9100 PRO 1TB",
                 category: "almacenamiento",
-                brand: "Samsung",
                 price: 950,
                 stock: 1,
                 image: "img/SSD_SAMSUNG_9100_PRO_1TB.jpg",
-                specs: {
-                    "Capacidad": "1TB",
-                    "Interfaz": "NVMe PCIe Gen 5.0",
-                    "Factor Forma": "M.2 2280",
-                    "Lectura": "14,800 MB/s",
-                    "Escritura": "13,400 MB/s"
-                }
+                specs: { "Capacidad": "1TB", "Interfaz": "NVMe PCIe Gen 5.0", "Factor Forma": "M.2 2280", "Lectura": "14,800 MB/s", "Escritura": "13,400 MB/s" }
             },
             {
                 id: 13,
                 name: "SSD T-FORCE G50 4TB",
                 category: "almacenamiento",
-                brand: "TeamGroup",
                 price: 2100,
                 stock: 1,
                 image: "img/SSD_T-FORCE_G50_4TB.jpg",
-                specs: {
-                    "Capacidad": "4TB",
-                    "Interfaz": "NVMe PCIe Gen 4.0",
-                    "Factor Forma": "M.2 2280",
-                    "Lectura": "5,000 MB/s",
-                    "Escritura": "4,500 MB/s"
-                }
+                specs: { "Capacidad": "4TB", "Interfaz": "NVMe PCIe Gen 4.0", "Factor Forma": "M.2 2280", "Lectura": "5,000 MB/s", "Escritura": "4,500 MB/s" }
             },
             // FUENTE DE PODER
             {
                 id: 14,
                 name: "CORSAIR CX750 750W",
-                category: "fuente",
-                brand: "Corsair",
+                category: "fuente-bronze",
                 price: 200,
                 stock: 1,
                 image: "img/CORSAIR_CX750_750W.jpg",
-                specs: {
-                    "Potencia": "750W",
-                    "Certificación": "80+ Bronze",
-                    "Tipo": "No Modular",
-                    "Factor Forma": "ATX",
-                    "Garantía": "1 año",
-                    "certificacion": "Bronze"
-                    
-                }
+                specs: { "Potencia": "750W", "Certificación": "80+ Bronze", "Tipo": "No Modular", "Factor Forma": "ATX", "Garantía": "1 año" }
             },
             // COOLER
             {
                 id: 15,
                 name: "COOLERMASTER ELITE 240MM",
-                category: "cooler",
-                brand: "Cooler Master",
+                category: "refrigeracion-liquida",
                 price: 120,
                 stock: 3,
                 image: "img/COOLERMASTER_ELITE_240MM.jpg",
-                specs: {
-                    "Tipo": "Liquid Cooler AIO",
-                    "Tamaño": "240mm",
-                    "TDP": "Hasta 250W",
-                    "Compatibilidad ": "Intel & AMD",
-                    "Garantía": "1 año",
-                    "RGB": "Sí"
-                }
+                specs: { "Tipo": "Liquid Cooler AIO", "Tamaño": "240mm", "TDP": "Hasta 250W", "Compatibilidad": "Intel & AMD", "Garantía": "1 año" }
             }
         ];
 
         let currentProduct = null;
-        let currentFilter = 'all';
+        let currentFilter = null;
 
-        // Renderizar productos
-        function renderProducts(filter = 'all') {
-            const container = document.getElementById('productsContainer');
-            const categories = {
-                amd: { title: 'AMD RYZEN - PROCESADORES', icon: '🔴' },
-                intel: { title: 'INTEL CORE ULTRA - PROCESADORES', icon: '🔵' },
-                placas: { title: 'PLACAS MADRE', icon: '🖲️' },
-                ram: { title: 'MEMORIA RAM', icon: '📊' },
-                almacenamiento: { title: 'ALMACENAMIENTO', icon: '💾' },
-                fuente: { title: 'FUENTE DE PODER', icon: '⚡' },
-                cooler: { title: 'REFRIGERACIÓN LIQUIDA', icon: '❄️' }
-            };
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
 
-            let html = '';
+        function toggleCategory(e, catId) {
+            e.stopPropagation();
+            const container = document.getElementById(catId + '-subcats');
+            const categoryMain = e.currentTarget;
+            
+            container.classList.toggle('open');
+            categoryMain.classList.toggle('expanded');
+        }
 
-            Object.entries(categories).forEach(([cat, info]) => {
-                const categoryProducts = products.filter(p => p.category === cat);
-                
-                if (filter === 'all' || filter === cat) {
-                    if (categoryProducts.length > 0) {
-                        html += `<h3 class="category-title">${info.icon} ${info.title}</h3>`;
-                        html += '<div class="products-grid">';
-                        
-                        categoryProducts.forEach(product => {
-                            const stockClass = product.stock === 0 ? 'no' : product.stock < 3 ? 'low' : '';
-                            const stockText = product.stock === 0 ? 'SIN STOCK' : `STOCK: ${product.stock}`;
-                            
-                            html += `
-                                <div class="product-card" onclick="openModal(${product.id})">
-                                    <div class="product-image-container">
-                                        <img src="${product.image}" alt="${product.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23475569%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23cbd5e1%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3E${product.name}%3C/text%3E%3C/svg%3E'">
-                                        <span class="stock-badge ${stockClass}">${stockText}</span>
-                                    </div>
-                                    <div class="product-info">
-                                        <div class="product-name">${product.name}</div>
-                                        <div>
-                                            <div class="product-price">S/ ${product.price}</div>
-                                            <button class="btn-details">Ver Detalles</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                        });
-                        
-                        html += '</div>';
-                    }
-                }
+        function togglePlacaSub(e) {
+            e.stopPropagation();
+            const text = e.currentTarget.textContent.trim();
+            if (text.includes('AMD')) {
+                const socketsDiv = document.querySelector('.placa-amd-sockets');
+                socketsDiv.style.display = socketsDiv.style.display === 'none' ? 'block' : 'none';
+            } else if (text.includes('Intel')) {
+                const socketsDiv = document.querySelector('.placa-intel-sockets');
+                socketsDiv.style.display = socketsDiv.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+
+        function filterProducts(filter) {
+            currentFilter = filter;
+            
+            // Actualizar items activos en sidebar
+            document.querySelectorAll('.subcategory-item').forEach(item => {
+                item.classList.remove('active');
             });
+            event.currentTarget.classList.add('active');
+            
+            // Cerrar sidebar en móvil
+            if (window.innerWidth <= 768) {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+            
+            renderProducts(filter);
+        }
 
+        function renderProducts(filter) {
+            const container = document.getElementById('productsContainer');
+            const filtered = products.filter(p => p.category === filter);
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon"><i class="fas fa-box-open"></i></div>
+                        <p>Sin productos disponibles</p>
+                        <p class="empty-state-sub">Esta categoría aún no tiene productos</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '<div class="products-grid">';
+            filtered.forEach(product => {
+                const stockClass = product.stock === 0 ? 'no' : product.stock < 3 ? 'low' : '';
+                const stockText = product.stock === 0 ? 'SIN STOCK' : `STOCK: ${product.stock}`;
+                
+                html += `
+                    <div class="product-card" onclick="openModal(${product.id})">
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23475569%22 width=%22200%22 height=%22200%22/%3E%3C/svg%3E'">
+                            <span class="stock-badge ${stockClass}">${stockText}</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">${product.name}</div>
+                            <div>
+                                <div class="product-price">S/ ${product.price}</div>
+                                <button class="btn-details">Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
             container.innerHTML = html;
         }
 
-        // Filtrar por categoría
-        function filterCategory(cat) {
-            currentFilter = cat;
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            renderProducts(cat);
-        }
-
-        // Abrir modal
         function openModal(productId) {
             currentProduct = products.find(p => p.id === productId);
             if (!currentProduct) return;
@@ -920,21 +1124,17 @@
             modal.style.display = 'block';
         }
 
-        // Cerrar modal
         function closeModal() {
             document.getElementById('productModal').style.display = 'none';
         }
 
-        // Contactar por WhatsApp
         function contactWhatsApp() {
             if (currentProduct) {
-                const message = `Hola AO NEXUS 👋\n\nMe interesa el siguiente producto:\n\n📦 ${currentProduct.name}\n💲 Precio: S/ ${currentProduct.price}\n📊 Stock actual: ${currentProduct.stock} unidad(es)\n\n¿Está disponible? Quisiera conocer más detalles.`;
-                const url = `https://wa.me/51942956898?text=${encodeURIComponent(message)}`;
-                window.open(url, '_blank');
+                const message = `Hola AO NEXUS 👋\n\nMe interesa:\n📦 ${currentProduct.name}\n💲 S/ ${currentProduct.price}\n📊 Stock: ${currentProduct.stock} unidad(es)`;
+                window.open(`https://wa.me/51942956898?text=${encodeURIComponent(message)}`, '_blank');
             }
         }
 
-        // Cerrar modal al hacer click fuera
         window.onclick = function(event) {
             const modal = document.getElementById('productModal');
             if (event.target === modal) {
@@ -942,11 +1142,7 @@
             }
         }
 
-        // Cerrar con X
         document.querySelector('.close').onclick = closeModal;
-
-        // Inicializar
-        renderProducts();
     </script>
 </body>
 </html>
