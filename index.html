@@ -261,29 +261,179 @@
             flex-direction: column;
         }
 
+        /* HERO SECTION - MEJORADO */
         .hero {
-            padding: 40px 20px;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
-            border-bottom: 2px solid #8b5cf6;
-            text-align: center;
-            display: none;
+            padding: 0;
+            border-bottom: 3px solid #8b5cf6;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 550px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero.show {
-            display: block;
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(10, 14, 39, 0.95) 0%, rgba(10, 14, 39, 0.75) 40%, rgba(10, 14, 39, 0.3) 70%, rgba(10, 14, 39, 0.1) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: left;
+            padding: 60px;
         }
 
         .hero h2 {
-            font-size: 36px;
+            font-size: 54px;
             background: linear-gradient(135deg, #8b5cf6, #06b6d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 25px;
+            font-weight: bold;
+            line-height: 1.15;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 16px;
+            font-size: 17px;
             color: #cbd5e1;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-bottom: 0;
+        }
+
+        /* Sección de productos destacados */
+        .featured-products {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+        }
+
+        .section-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .section-title span {
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Sección de beneficios */
+        .benefits-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+        }
+
+        .benefits-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ffffff;
+        }
+
+        .benefits-title span {
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .benefit-card {
+            background: transparent;
+            border-right: 2px solid #334155;
+            border-radius: 0;
+            padding: 30px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefit-card:last-child {
+            border-right: none;
+        }
+
+        .benefit-card:hover {
+            background: rgba(139, 92, 246, 0.1);
+            border-right-color: #8b5cf6;
+        }
+
+        .benefit-icon {
+            font-size: 32px;
+            color: #06b6d4;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            color: #8b5cf6;
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ffffff;
+            line-height: 1.3;
+        }
+
+        .benefit-desc {
+            font-size: 12px;
+            color: #cbd5e1;
+            line-height: 1.5;
         }
 
         .products-section {
@@ -686,13 +836,57 @@
                 grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             }
 
+            .hero {
+                min-height: 500px;
+            }
+
+            .hero::before {
+                background: linear-gradient(180deg, rgba(10, 14, 39, 0.5) 0%, rgba(10, 14, 39, 0.85) 60%, rgba(10, 14, 39, 0.95) 100%);
+            }
+
+            .hero-content {
+                max-width: 100%;
+                padding: 30px 20px;
+                align-items: center;
+                text-align: center;
+            }
+
             .hero h2 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .section-title {
                 font-size: 24px;
             }
 
             .modal-content {
                 width: 95%;
                 margin: 20% auto;
+            }
+
+            .featured-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-card {
+                border-right: none !important;
+                border-bottom: 2px solid #334155;
+            }
+
+            .benefit-card:last-child {
+                border-bottom: none;
+            }
+
+            .benefit-card:hover {
+                border-right-color: transparent;
             }
         }
     </style>
@@ -841,8 +1035,28 @@
 
         <!-- Content Area -->
         <div class="content">
-            <!-- Products Section -->
-            <section class="products-section">
+            <!-- HERO SECTION -->
+            <section class="hero" id="heroSection">
+                <img src="img/Gemini_Generated_Image_e9l8zze9l8zze9l8.jpg" alt="Hardware de Última Generación" class="hero-bg-image">
+                <div class="hero-content">
+                    <h2>HARDWARE DE ÚLTIMA GENERACIÓN</h2>
+                    <p>Encuentra lo último y lo mejor para tu PC</p>
+                    <p class="hero-subtitle">Unidades Exclusivas, Stock Limitado</p>
+                </div>
+            </section>
+
+            <!-- PRODUCTOS DESTACADOS -->
+            <section class="featured-products" id="featuredSection">
+                <div class="container">
+                    <h3 class="section-title">Productos <span>Destacados</span></h3>
+                    <div class="featured-grid" id="featuredGrid">
+                        <!-- Se llena con JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section (cuando filtra) -->
+            <section class="products-section" id="productsSection" style="display:none;">
                 <div class="container" id="productsContainer">
                     <div class="empty-state">
                         <div class="empty-state-icon">
@@ -850,6 +1064,30 @@
                         </div>
                         <p>Selecciona una categoría</p>
                         <p class="empty-state-sub">Expande una categoría y elige una opción del menú lateral</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN DE BENEFICIOS -->
+            <section class="benefits-section">
+                <div class="container">
+                    <h3 class="benefits-title">¿Por qué elegir <span>AO NEXUS</span>?</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <i class="fas fa-shield-alt benefit-icon"></i>
+                            <div class="benefit-title">1 AÑO DE GARANTÍA</div>
+                            <div class="benefit-desc">Productos nuevos y sellados.</div>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-map-marker-alt benefit-icon"></i>
+                            <div class="benefit-title">RECOJO EN CYBER PLAZA</div>
+                            <div class="benefit-desc">Recojo previamente coordinado.</div>
+                        </div>
+                        <div class="benefit-card">
+                            <i class="fas fa-truck benefit-icon"></i>
+                            <div class="benefit-title">ENVÍOS A COORDINAR</div>
+                            <div class="benefit-desc">Delivery o envío por agencia según destino</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -899,6 +1137,7 @@
                 category: "amd",
                 price: 700,
                 stock: 5,
+                featured: true,
                 image: "img/RYZEN_5_9600X.jpg",
                 specs: { "Familia": "Ryzen 5 9600X", "Cores/Threads": "6C/12T", "Frecuencia Base": "4.4 GHz", "Socket": "AM5", "TDP": "65W" }
             },
@@ -908,6 +1147,7 @@
                 category: "amd",
                 price: 1450,
                 stock: 1,
+                featured: true,
                 image: "img/RYZEN_7_7800X3D.jpg",
                 specs: { "Familia": "Ryzen 7 7800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.2 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
             },
@@ -917,6 +1157,7 @@
                 category: "amd",
                 price: 1650,
                 stock: 1,
+                featured: true,
                 image: "img/RYZEN_7_9800X3D.jpg",
                 specs: { "Familia": "Ryzen 7 9800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.7 GHz", "Socket": "AM5", "TDP": "120W" }
             },
@@ -926,6 +1167,7 @@
                 category: "amd",
                 price: 2700,
                 stock: 1,
+                featured: true,
                 image: "img/RYZEN_9_9500X3D.jpg",
                 specs: { "Familia": "Ryzen 9 9950X3D", "Cores/Threads": "16C/32T", "Frecuencia Base": "4.3 GHz", "Socket": "AM5", "TDP": "120W" }
             },
@@ -936,6 +1178,7 @@
                 category: "intel",
                 price: 550,
                 stock: 2,
+                featured: false,
                 image: "img/ULTRA_5_225F.jpg",
                 specs: { "Familia": "Core Ultra 5 225F", "Cores/Threads": "6C/8T", "Frecuencia Base": "3.7 GHz", "Socket": "LGA1851", "TDP": "58W" }
             },
@@ -945,6 +1188,7 @@
                 category: "intel",
                 price: 1150,
                 stock: 1,
+                featured: true,
                 image: "img/ULTRA_7_270K_PLUS.jpg",
                 specs: { "Familia": "Core Ultra 7 270K PLUS", "Cores/Threads": "8C/12T", "Frecuencia Base": "3.6 GHz", "Socket": "LGA1851", "TDP": "125W" }
             },
@@ -954,6 +1198,7 @@
                 category: "intel",
                 price: 2000,
                 stock: 1,
+                featured: true,
                 image: "img/ULTRA_9_285K.jpg",
                 specs: { "Familia": "Core Ultra 9 285K", "Cores/Threads": "24C/24T", "Frecuencia Base": "3.7 GHz", "Socket": "LGA1851", "TDP": "125W" }
             },
@@ -964,6 +1209,7 @@
                 category: "placa-am5",
                 price: 650,
                 stock: 1,
+                featured: true,
                 image: "img/B850M-E_ASUS_TUF_WIFI.jpg",
                 specs: { "Modelo": "B850M-E ASUS TUF WIFI", "Socket": "AM5", "Chipset": "B850M", "Factor Forma": "Micro-ATX", "WiFi": "WiFi 7" }
             },
@@ -973,6 +1219,7 @@
                 category: "placa-am5",
                 price: 670,
                 stock: 1,
+                featured: false,
                 image: "img/B850_MAX_GAMING_WIFI_W.jpg",
                 specs: { "Modelo": "B850 MAX GAMING WIFI W", "Socket": "AM5", "Chipset": "B850", "Factor Forma": "ATX", "WiFi": "WiFi 6E" }
             },
@@ -981,8 +1228,9 @@
                 id: 10,
                 name: "NETAC 2X16GB 3200MHZ DDR4",
                 category: "ddr4",
-                price: 700,
+                price:650,
                 stock: 1,
+                featured: false,
                 image: "img/NETAC_2X16GB_3200MHZ.jpg",
                 specs: { "Capacidad": "2x16GB (32GB Total)", "Tipo": "DDR4", "Velocidad": "3200 MHz", "CAS Latency": "CAS 16", "Voltaje": "1.35V" }
             },
@@ -992,6 +1240,7 @@
                 category: "ddr5",
                 price: 720,
                 stock: 1,
+                featured: false,
                 image: "img/TEAMGROUP_TFORCE_VULCAN_DDR5.jpg",
                 specs: { "Capacidad": "2x8GB (16GB Total)", "Tipo": "DDR5", "Velocidad": "5200 MHz", "CAS Latency": "CAS 24", "Voltaje": "1.25V" }
             },
@@ -1002,6 +1251,7 @@
                 category: "almacenamiento",
                 price: 950,
                 stock: 1,
+                featured: true,
                 image: "img/SSD_SAMSUNG_9100_PRO_1TB.jpg",
                 specs: { "Capacidad": "1TB", "Interfaz": "NVMe PCIe Gen 5.0", "Factor Forma": "M.2 2280", "Lectura": "14,800 MB/s", "Escritura": "13,400 MB/s" }
             },
@@ -1011,6 +1261,7 @@
                 category: "almacenamiento",
                 price: 2100,
                 stock: 1,
+                featured: false,
                 image: "img/SSD_T-FORCE_G50_4TB.jpg",
                 specs: { "Capacidad": "4TB", "Interfaz": "NVMe PCIe Gen 4.0", "Factor Forma": "M.2 2280", "Lectura": "5,000 MB/s", "Escritura": "4,500 MB/s" }
             },
@@ -1021,6 +1272,7 @@
                 category: "fuente-bronze",
                 price: 200,
                 stock: 1,
+                featured: false,
                 image: "img/CORSAIR_CX750_750W.jpg",
                 specs: { "Potencia": "750W", "Certificación": "80+ Bronze", "Tipo": "No Modular", "Factor Forma": "ATX", "Garantía": "1 año" }
             },
@@ -1031,6 +1283,7 @@
                 category: "refrigeracion-liquida",
                 price: 120,
                 stock: 3,
+                featured: false,
                 image: "img/COOLERMASTER_ELITE_240MM.jpg",
                 specs: { "Tipo": "Liquid Cooler AIO", "Tamaño": "240mm", "TDP": "Hasta 250W", "Compatibilidad": "Intel & AMD", "Garantía": "1 año" }
             }
@@ -1039,18 +1292,41 @@
         let currentProduct = null;
         let currentFilter = null;
 
-        function goHome() {
-            document.getElementById('productsContainer').innerHTML = `
-                <div class="empty-state">
-                    <div class="empty-state-icon">
-                        <i class="fas fa-box-open"></i>
-                    </div>
-                    <p>Selecciona una categoría</p>
-                    <p class="empty-state-sub">Expande una categoría y elige una opción del menú lateral</p>
-                </div>
-            `;
+        // Mostrar productos destacados al cargar
+        function loadFeaturedProducts() {
+            const featured = products.filter(p => p.featured);
+            const container = document.getElementById('featuredGrid');
+            let html = '';
 
+            featured.forEach(product => {
+                const stockClass = product.stock === 0 ? 'no' : product.stock < 3 ? 'low' : '';
+                const stockText = product.stock === 0 ? 'SIN STOCK' : `STOCK: ${product.stock}`;
+                
+                html += `
+                    <div class="product-card" onclick="openModal(${product.id})">
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23475569%22 width=%22200%22 height=%22200%22/%3E%3C/svg%3E'">
+                            <span class="stock-badge ${stockClass}">${stockText}</span>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">${product.name}</div>
+                            <div>
+                                <div class="product-price">S/ ${product.price}</div>
+                                <button class="btn-details">Ver Detalles</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function goHome() {
             currentFilter = null;
+            document.getElementById('heroSection').style.display = 'flex';
+            document.getElementById('featuredSection').style.display = 'block';
+            document.getElementById('productsSection').style.display = 'none';
 
             document.querySelectorAll('.subcategory-item').forEach(item => {
                 item.classList.remove('active');
@@ -1111,7 +1387,12 @@
                 document.getElementById('sidebar').classList.remove('active');
             }
             
+            document.getElementById('heroSection').style.display = 'none';
+            document.getElementById('featuredSection').style.display = 'none';
+            document.getElementById('productsSection').style.display = 'block';
+            
             renderProducts(filter);
+            window.scrollTo(0, 200);
         }
 
         function renderProducts(filter) {
@@ -1192,6 +1473,9 @@
         }
 
         document.querySelector('.close').onclick = closeModal;
+
+        // Cargar productos destacados al iniciar
+        loadFeaturedProducts();
     </script>
 </body>
 </html>
