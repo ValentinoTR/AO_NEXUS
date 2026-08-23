@@ -766,33 +766,267 @@
             animation: none;
         }
 
+        /* FOOTER STYLES - NUEVO DISEÑO */
         footer {
-            background: #0f172a;
-            padding: 30px 20px;
-            text-align: center;
-            border-top: 2px solid #8b5cf6;
+            background: linear-gradient(135deg, #1a0f2e 0%, #0a0e27 100%);
+            padding: 50px 20px 30px;
+            border-top: 3px solid #8b5cf6;
             margin-top: 40px;
         }
 
-        footer p {
-            color: #64748b;
-            font-size: 14px;
-            margin: 10px 0;
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .footer-info {
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .footer-section {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
 
-        .footer-item {
+        .footer-section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #8b5cf6;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+        }
+
+        .footer-section-title i {
+            font-size: 18px;
+            color: #06b6d4;
+        }
+
+        .footer-item-link {
             color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .footer-item-link:hover {
+            color: #06b6d4;
+            transform: translateX(5px);
+        }
+
+        .footer-item-link i {
+            color: #8b5cf6;
+            min-width: 20px;
+        }
+
+        .footer-section-content {
+            color: #cbd5e1;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #334155;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact-item i {
+            color: #06b6d4;
+            min-width: 20px;
+            margin-top: 3px;
+        }
+
+        .footer-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .footer-contact-label {
+            font-size: 12px;
+            color: #8b5cf6;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-contact-value {
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        .footer-contact-value a {
+            color: #06b6d4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-contact-value a:hover {
+            color: #8b5cf6;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+        }
+
+        .footer-bottom p {
+            color: #64748b;
+            font-size: 13px;
+            margin: 8px 0;
+        }
+
+        .footer-copyright {
+            color: #475569;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        /* FOOTER MAP STYLES */
+        .footer-map-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #334155;
+        }
+
+        .footer-map-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .footer-map-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .footer-map-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-map-title i {
+            color: #06b6d4;
+            font-size: 24px;
+        }
+
+        .footer-map-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .map-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .map-detail-item i {
+            color: #8b5cf6;
+            min-width: 20px;
+            margin-top: 3px;
+            font-size: 16px;
+        }
+
+        .map-detail-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-detail-label {
+            font-size: 12px;
+            color: #8b5cf6;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .map-detail-value {
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-top: 3px;
+            line-height: 1.5;
+        }
+
+        .footer-map-embed {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #334155;
+            height: 400px;
+            background: #1e293b;
+        }
+
+        .footer-map-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map-button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .map-button {
+            flex: 1;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .map-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .map-button.secondary {
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid #8b5cf6;
+            color: #06b6d4;
+        }
+
+        .map-button.secondary:hover {
+            background: rgba(139, 92, 246, 0.3);
         }
 
         /* Responsive */
@@ -887,6 +1121,28 @@
 
             .benefit-card:hover {
                 border-right-color: transparent;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-map-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-map-embed {
+                height: 300px;
+            }
+
+            .map-button-group {
+                flex-direction: column;
+            }
+
+            .footer-map-title {
+                font-size: 18px;
             }
         }
     </style>
@@ -1117,17 +1373,155 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
+    <!-- FOOTER NUEVO -->
     <footer>
-        <div class="footer-info">
-            <div class="footer-item"><i class="fas fa-phone"></i> +51 942 956 898</div>
-            <div class="footer-item"><i class="fas fa-map-marker-alt"></i> Lima - Perú</div>
-            <div class="footer-item"><i class="fas fa-truck"></i> Envíos Rápidos</div>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- SECCIÓN INFORMACIÓN -->
+                <div class="footer-section">
+                    <div class="footer-section-title">
+                        <i class="fas fa-info-circle"></i>
+                        INFORMACIÓN
+                    </div>
+                    <div class="footer-item-link" onclick="toggleFooterContent(this, 'nosotros')">
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Nosotros</span>
+                    </div>
+                    <div id="nosotros" class="footer-section-content" style="display: none;">
+                        <strong>¿QUIÉNES SOMOS?</strong>
+                        <p style="margin-top: 10px;">AO NEXUS es una tienda especializada en hardware y tecnología, ofreciendo productos nuevos y sellados con precios competitivos, garantía y atención confiable.</p>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN SERVICIO AL CLIENTE -->
+                <div class="footer-section">
+                    <div class="footer-section-title">
+                        <i class="fas fa-headset"></i>
+                        SERVICIO AL CLIENTE
+                    </div>
+                    <div class="footer-item-link" onclick="toggleFooterContent(this, 'terminos')">
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Términos y Condiciones</span>
+                    </div>
+                    <div id="terminos" class="footer-section-content" style="display: none;">
+                        <strong>TÉRMINOS Y CONDICIONES GENERALES</strong>
+                        <p style="margin-top: 10px; max-height: 300px; overflow-y: auto;">
+                            <strong>1. Información General:</strong> AO NEXUS es una tienda especializada en hardware y componentes tecnológicos. Comercializamos productos nuevos y sellados, sujetos a disponibilidad de stock.
+                            <br><br>
+                            <strong>2. Precios y Disponibilidad:</strong> Los precios están en soles (S/). El stock puede cambiar sin previo aviso.
+                            <br><br>
+                            <strong>3. Garantía:</strong> Los productos cuentan con garantía conforme a las condiciones informadas. La garantía cubre fallas de fabricación, no daños por uso incorrecto.
+                            <br><br>
+                            <strong>4. Entregas:</strong> Se realizan entregas coordinadas. Para Cyberplaza, delivery gratuito según condiciones. Para otros destinos, se coordinan empresas de transporte.
+                            <br><br>
+                            <strong>5. Cambios y Devoluciones:</strong> Se evalúan según el estado del producto y normativa aplicable. El producto debe estar completo y sin manipulación.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN CONTÁCTANOS -->
+                <div class="footer-section">
+                    <div class="footer-section-title">
+                        <i class="fas fa-phone-alt"></i>
+                        CONTÁCTANOS
+                    </div>
+                    
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="footer-contact-info">
+                            <span class="footer-contact-label">Correo</span>
+                            <span class="footer-contact-value"><a href="mailto:aonexuspe@gmail.com">aonexuspe@gmail.com</a></span>
+                        </div>
+                    </div>
+
+                    <div class="footer-contact-item">
+                        <i class="fab fa-facebook"></i>
+                        <div class="footer-contact-info">
+                            <span class="footer-contact-label">Facebook</span>
+                            <span class="footer-contact-value"><a href="https://www.facebook.com/profile.php?id=61593619740184&locale=es_LA" target="_blank">AO NEXUS</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER MAP SECTION -->
+            <div class="footer-map-section">
+                <div class="footer-map-wrapper">
+                    <!-- Map Info Left -->
+                    <div class="footer-map-info">
+                        <div class="footer-map-title">
+                            <i class="fas fa-map-location-dot"></i>
+                            Visítanos en Cyber Plaza
+                        </div>
+                        
+                        <div class="footer-map-details">
+                            <div class="map-detail-item">
+                                <i class="fas fa-location-dot"></i>
+                                <div class="map-detail-text">
+                                    <span class="map-detail-label">Dirección</span>
+                                    <span class="map-detail-value">GALERIA CYBER PLAZA INT 2B-147, Lima, Perú</span>
+                                </div>
+                            </div>
+
+                            <div class="map-detail-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="map-detail-text">
+                                    <span class="map-detail-label">Teléfono</span>
+                                    <span class="map-detail-value"><a href="tel:+51942956898" style="color: #06b6d4; text-decoration: none;">+51 942 956 898</a></span>
+                                </div>
+                            </div>
+
+                            <div class="map-detail-item">
+                                <i class="fas fa-clock"></i>
+                                <div class="map-detail-text">
+                                    <span class="map-detail-label">Horario</span>
+                                    <span class="map-detail-value">Lunes a Sábado<br>12:00 pm - 7:00 pm</span>
+                                </div>
+                            </div>
+
+                            <div class="map-button-group">
+                                <a href="https://www.google.com/maps/place/Cyber+Plaza/@-12.0569915,-77.0393457,3a,75y,80.29h,81.19t/data=!3m7!1e1!3m5!1sfBEP9ia2HYiL4JRgu1iV6Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D8.80711282481883%26panoid%3DfBEP9ia2HYiL4JRgu1iV6Q%26yaw%3D80.28536766557131!7i16384!8i8192!4m6!3m5!1s0x9105c8c6a4cadd41:0x684a92056addc88a!8m2!3d-12.0569097!4d-77.0386343!16s%2Fg%2F1yj2mkks5?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-button">
+                                    <i class="fas fa-map"></i>
+                                    Ver en Maps
+                                </a>
+                                <a href="https://wa.me/51942956898?text=Hola%20AO%20NEXUS%2C%20quisiera%20saber%20más%20información" target="_blank" class="map-button secondary">
+                                    <i class="fab fa-whatsapp"></i>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Right -->
+                    <div class="footer-map-embed">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.123456789!2d-77.0393457!3d-12.0569915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c6a4cadd41%3A0x684a92056addc88a!2sCyber%20Plaza!5e0!3m2!1ses!2spe!4v=1726766400000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER BOTTOM -->
+            <div class="footer-bottom">
+                <p>© 2026 AO NEXUS - Hardware Gaming & Creación - Todos los derechos reservados</p>
+                <p class="footer-copyright">Especialistas en Hardware | Productos Nuevos y Sellados | Garantía 1 Año</p>
+            </div>
         </div>
-        <p>© 2026 AO NEXUS - Hardware Gaming  - Todos los derechos reservados</p>
     </footer>
 
     <script>
+        // Función para toggle del contenido del footer
+        function toggleFooterContent(element, contentId) {
+            const content = document.getElementById(contentId);
+            const chevron = element.querySelector('i');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                chevron.style.transform = 'rotate(90deg)';
+            } else {
+                content.style.display = 'none';
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        }
+
         // Base de datos de productos actualizada con tags de categoría
         const products = [
             // AMD
