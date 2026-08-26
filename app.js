@@ -597,7 +597,7 @@ function closeModal() {
 function contactWhatsApp() {
     if (currentProduct) {
         const message = `Hola, me interesa el ${currentProduct.name} que vi en su web. Esta disponible al precio de S/ ${currentProduct.price}?`;
-        window.open(`https://wa.me/51942956898?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/51936177329?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
