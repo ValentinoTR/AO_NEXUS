@@ -45,7 +45,7 @@ const products = [
         stock: 5,
         featured: true,
         image: "img/RYZEN_5_9600X.jpg",
-        specs: { "Familia": "Ryzen 5 9600X", "Cores/Threads": "6C/12T", "Frecuencia Base": "4.4 GHz", "Socket": "AM5", "TDP": "65W" }
+        specs: { "Familia": "Ryzen 5 9600X", "Cores/Threads": "6C/12T", "Frecuencia Base": "3.9 GHz", "Frecuencia Turbo": "5.4 GHz", "Socket": "AM5", "TDP": "65W" }
     },
     {
         id: 2,
@@ -55,7 +55,7 @@ const products = [
         stock: 1,
         featured: true,
         image: "img/RYZEN_7_7800X3D.jpg",
-        specs: { "Familia": "Ryzen 7 7800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.2 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
+        specs: { "Familia": "Ryzen 7 7800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.2 GHz", "Frecuencia Turbo": "5.0 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
     },
     {
         id: 3,
@@ -65,7 +65,7 @@ const products = [
         stock: 1,
         featured: true,
         image: "img/RYZEN_7_9800X3D.jpg",
-        specs: { "Familia": "Ryzen 7 9800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.7 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
+        specs: { "Familia": "Ryzen 7 9800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.7 GHz", "Frecuencia Turbo": "5.2 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
     },
     {
         id: 4,
@@ -75,7 +75,7 @@ const products = [
         stock: 1,
         featured: true,
         image: "img/RYZEN_9_9500X3D.jpg",
-        specs: { "Familia": "Ryzen 9 9950X3D", "Cores/Threads": "16C/32T", "Frecuencia Base": "4.3 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
+        specs: { "Familia": "Ryzen 9 9950X3D", "Cores/Threads": "16C/32T", "Frecuencia Base": "4.3 GHz", "Frecuencia Turbo": "5.7 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
     },
     // INTEL
     {
@@ -86,7 +86,7 @@ const products = [
         stock: 2,
         featured: false,
         image: "img/ULTRA_5_225F.jpg",
-        specs: { "Familia": "Core Ultra 5 225F", "Cores/Threads": "6C/8T", "Frecuencia Base": "3.7 GHz", "Socket": "LGA1851", "TDP": "58W" }
+        specs: { "Familia": "Core Ultra 5 225F", "Cores/Threads": "6C/8T", "Frecuencia Base": "3.3 GHz", "Frecuencia Turbo": "4.9 GHz", "Socket": "LGA1851", "TDP": "58W" }
     },
     {
         id: 6,
@@ -96,7 +96,7 @@ const products = [
         stock: 1,
         featured: true,
         image: "img/ULTRA_7_270K_PLUS.jpg",
-        specs: { "Familia": "Core Ultra 7 270K PLUS", "Cores/Threads": "8C/12T", "Frecuencia Base": "3.6 GHz", "Socket": "LGA1851", "TDP": "125W" }
+        specs: { "Familia": "Core Ultra 7 270K PLUS", "Cores/Threads": "8C/12T", "Frecuencia Base": "3.7 GHz", "Frecuencia Turbo": "5.5 GHz", "Socket": "LGA1851", "TDP": "125W" }
     },
     {
         id: 7,
@@ -106,7 +106,7 @@ const products = [
         stock: 1,
         featured: true,
         image: "img/ULTRA_9_285K.jpg",
-        specs: { "Familia": "Core Ultra 9 285K", "Cores/Threads": "24C/24T", "Frecuencia Base": "3.7 GHz", "Socket": "LGA1851", "TDP": "125W" }
+        specs: { "Familia": "Core Ultra 9 285K", "Cores/Threads": "24C/24T", "Frecuencia Base": "3.7 GHz", "Frecuencia Turbo": "5.7 GHz", "Socket": "LGA1851", "TDP": "125W" }
     },
     // PLACAS MADRE
     {
