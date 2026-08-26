@@ -597,7 +597,7 @@ function closeModal() {
 function contactWhatsApp() {
     if (currentProduct) {
         const message = `Hola AO NEXUS 👋\n\nMe interesa:\n📦 ${currentProduct.name}\n💲 S/ ${currentProduct.price}\n📊 Stock: ${currentProduct.stock} unidad(es)`;
-        window.open(`https://wa.me/51942956898?text=${encodeURIComponent(message)}`, '_blank');
+        window.open(`https://wa.me/51936177329?text=${encodeURIComponent(message)}`, '_blank');
     }
 }
 
