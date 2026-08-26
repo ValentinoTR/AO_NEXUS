@@ -65,7 +65,7 @@ const products = [
         stock: 1,
         featured: true,
         image: "img/RYZEN_7_9800X3D.jpg",
-        specs: { "Familia": "Ryzen 7 9800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.7 GHz", "Socket": "AM5", "TDP": "120W" }
+        specs: { "Familia": "Ryzen 7 9800X3D", "Cores/Threads": "8C/16T", "Frecuencia Base": "4.7 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
     },
     {
         id: 4,
@@ -75,7 +75,7 @@ const products = [
         stock: 1,
         featured: true,
         image: "img/RYZEN_9_9500X3D.jpg",
-        specs: { "Familia": "Ryzen 9 9950X3D", "Cores/Threads": "16C/32T", "Frecuencia Base": "4.3 GHz", "Socket": "AM5", "TDP": "120W" }
+        specs: { "Familia": "Ryzen 9 9950X3D", "Cores/Threads": "16C/32T", "Frecuencia Base": "4.3 GHz", "Socket": "AM5", "TDP": "120W", "3D V-Cache": "Sí" }
     },
     // INTEL
     {
