@@ -77,9 +77,19 @@ const products = [
         image: "img/RYZEN_9_9500X3D.jpg",
         specs: { "Familia": "Ryzen 9 9950X3D", "Cores/Threads": "16C/32T", "Frecuencia Base": "4.3 GHz", "Socket": "AM5", "TDP": "120W" }
     },
-    // INTEL
     {
         id: 5,
+        name: "RYZEN 9 9900X",
+        category: "amd",
+        price: 1400,
+        stock: 1,
+        featured: false,
+        image: "img/RYZEN_9_9900X.jpg",
+        specs: { "Familia": "Ryzen 9 9900X", "Cores/Threads": "12C/24T", "Frecuencia Base": "4.4 GHz", "Socket": "AM5", "TDP": "120W" }
+    },
+    // INTEL
+    {
+        id: 6,
         name: "INTEL CORE ULTRA 5 225F",
         category: "intel",
         price: 550,
@@ -89,7 +99,7 @@ const products = [
         specs: { "Familia": "Core Ultra 5 225F", "Cores/Threads": "6C/8T", "Frecuencia Base": "3.7 GHz", "Socket": "LGA1851", "TDP": "58W" }
     },
     {
-        id: 6,
+        id: 7,
         name: "INTEL CORE ULTRA 7 270K PLUS",
         category: "intel",
         price: 1150,
@@ -99,7 +109,7 @@ const products = [
         specs: { "Familia": "Core Ultra 7 270K PLUS", "Cores/Threads": "8C/12T", "Frecuencia Base": "3.6 GHz", "Socket": "LGA1851", "TDP": "125W" }
     },
     {
-        id: 7,
+        id: 8,
         name: "INTEL CORE ULTRA 9 285K",
         category: "intel",
         price: 2000,
@@ -110,7 +120,7 @@ const products = [
     },
     // PLACAS MADRE
     {
-        id: 8,
+        id: 9,
         name: "B550-PLUS ASUS TUF WIFI II",
         category: "placa-am4",
         price: 480,
@@ -120,7 +130,7 @@ const products = [
         specs: { "Modelo": "B550-PLUS WIFI II ASUS TUF GAMING", "Socket": "AM4", "Chipset": "B550", "Factor Forma": "ATX", "WiFi": "WiFi 6" }
     },
     {
-        id: 9,
+        id: 10,
         name: "B850M-E ASUS TUF WIFI",
         category: "placa-am5",
         price: 650,
@@ -130,7 +140,7 @@ const products = [
         specs: { "Modelo": "B850M-E ASUS TUF WIFI", "Socket": "AM5", "Chipset": "B850M", "Factor Forma": "Micro-ATX", "WiFi": "WiFi 7" }
     },
     {
-        id: 10,
+        id: 11,
         name: "B850 MAX GAMING WIFI W",
         category: "placa-am5",
         price: 670,
@@ -139,9 +149,19 @@ const products = [
         image: "img/B850_MAX_GAMING_WIFI_W.jpg",
         specs: { "Modelo": "B850 MAX GAMING WIFI W", "Socket": "AM5", "Chipset": "B850", "Factor Forma": "ATX", "WiFi": "WiFi 6E" }
     },
+    {
+        id: 12,
+        name: "MSI PRO B850-S WIFI6E",
+        category: "placa-am5",
+        price: 580,
+        stock: 1,
+        featured: false,
+        image: "img/MSI_PRO_B850_S_WIFI6E.jpg",
+        specs: { "Modelo": "MSI PRO B850-S WIFI6E", "Socket": "AM5", "Chipset": "B850", "Factor Forma": "Micro-ATX", "WiFi": "WiFi 6E" }
+    },
     // RAM
     {
-        id: 11,
+        id: 13,
         name: "NETAC 2X16GB 3200MHZ DDR4",
         category: "ddr4",
         price: 650,
@@ -151,7 +171,7 @@ const products = [
         specs: { "Capacidad": "2x16GB (32GB Total)", "Tipo": "DDR4", "Velocidad": "3200 MHz", "CAS Latency": "CAS 16", "Voltaje": "1.35V" }
     },
     {
-        id: 12,
+        id: 14,
         name: "TEAMGROUP 2x8GB TFORCE VULCAN 5200MHZ DDR5",
         category: "ddr5",
         price: 720,
@@ -162,7 +182,7 @@ const products = [
     },
     // ALMACENAMIENTO
     {
-        id: 13,
+        id: 15,
         name: "SSD SAMSUNG 9100 PRO 1TB",
         category: "almacenamiento",
         price: 950,
@@ -172,7 +192,7 @@ const products = [
         specs: { "Capacidad": "1TB", "Interfaz": "NVMe PCIe Gen 5.0", "Factor Forma": "M.2 2280", "Lectura": "14,800 MB/s", "Escritura": "13,400 MB/s" }
     },
     {
-        id: 14,
+        id: 16,
         name: "SSD T-FORCE G50 4TB",
         category: "almacenamiento",
         price: 2100,
@@ -183,7 +203,7 @@ const products = [
     },
     // FUENTE DE PODER
     {
-        id: 15,
+        id: 17,
         name: "CORSAIR CX750 750W",
         category: "fuente-bronze",
         price: 200,
@@ -194,17 +214,27 @@ const products = [
     },
     // COOLER
     {
-        id: 16,
+        id: 18,
         name: "COOLERMASTER ELITE 240MM",
         category: "refrigeracion-liquida",
         price: 120,
         stock: 3,
         featured: false,
         image: "img/COOLERMASTER_ELITE_240MM.jpg",
-        specs: { "Tipo": "Liquid Cooler AIO", "Tamaño": "240mm", "TDP": "Hasta 250W", "Compatibilidad": "Intel & AMD", "Garantía": "1 año" }
+        specs: { "Tipo": "Liquid Cooler AIO", "Tamaño": "240mm", "TDP": "Hasta 250W", "Compatibilidad": "Intel & AMD", "Garantía": "1 año", "Color": "Negro" }
     },
     {
-        id: 17,
+        id: 19,
+        name: "THERMALRIGHT ELITE VISION 360 ARGB WHITE",
+        category: "refrigeracion-liquida",
+        price: 350,
+        stock: 1,
+        featured: false,
+        image: "img/THERMALRIGHT_ELITE_VISION_360_ARGB.jpg",
+        specs: { "Tipo": "Liquid Cooler AIO", "Tamaño": "360mm", "TDP": "Hasta 300W", "Compatibilidad": "Intel & AMD", "Garantía": "1 año", "ARGB": "Sí", "Color": "Blanco" }
+    },
+    {
+        id: 20,
         name: "THERMALRIGHT PEERLESS ASSASSIN 120 DIGITAL ARGB WHITE",
         category: "refrigeracion-aire",
         price: 170,
@@ -228,11 +258,11 @@ const MAX_COMPARE = 3;
 // --------------------------------------------------------------------------
 
 function getStockClass(stock) {
-    return stock === 0 ? 'no' : stock < 3 ? 'low' : '';
+    return stock === 0 ? 'no' : '';
 }
 
 function getStockText(stock) {
-    return stock === 0 ? 'SIN STOCK' : `STOCK: ${stock}`;
+    return stock === 0 ? 'SIN STOCK' : '<i class="fas fa-circle stock-icon"></i> EN STOCK';
 }
 
 // Genera el HTML de una tarjeta de producto (reutilizado en destacados, filtros y búsqueda)
