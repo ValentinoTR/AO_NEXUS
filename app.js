@@ -78,7 +78,7 @@ const products = [
     sub:"8 núcleos / 12 hilos · LGA1851", image:"img/ULTRA_7_270K_PLUS.jpg",
     specs:{ "Familia":"Core Ultra 7 270K PLUS","Cores/Threads":"8C/12T","Frecuencia Base":"3.6 GHz","Socket":"LGA1851","TDP":"125W" } },
 
-  { id:7, name:"INTEL CORE ULTRA 9 285K", category:"intel", price:2000, stock:1, featured:true, best:true,
+  { id:7, name:"INTEL CORE ULTRA 9 285K", category:"intel", price:2100, stock:1, featured:true, best:true,
     sub:"24 núcleos · LGA1851", image:"img/ULTRA_9_285K.jpg",
     specs:{ "Familia":"Core Ultra 9 285K","Cores/Threads":"24C/24T","Frecuencia Base":"3.7 GHz","Socket":"LGA1851","TDP":"125W" } },
 
